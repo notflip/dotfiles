@@ -4,11 +4,7 @@
 ### Install
 
 Clone this repository
-`git clone ..... ~/.dotfiles`
-
-Run the install script
-`~/.dotfiles/install.sh`
-
+`bash -c "$(curl -fsSL https://raw.githubusercontent.com/notflip/dotfiles/main/install)"`
 
 ### Manual steps
 
