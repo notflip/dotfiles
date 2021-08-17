@@ -15,9 +15,22 @@ cd "$DOTFILES" || exit
 mkdir -p $HOME/Code
 mkdir -p $HOME/Syncthing
 
+# Setup XCode
+setup_xcode() {
+    echo "Installing Command Line Developer Tools if not installed"
+    if ! [ -d /Library/Developer/CommandLineTools ]; then
+        echo "Please, click on Install & Agree to accept the Command Line Developer Tools License Agreement"
+        sleep 1
+        xcode-select --install
+        read -rp "Press enter once the installation finishes" not_needed_param
+    else
+        echo "Command Line Developer Tools are already installed!"
+    fi
+}
+
 # Setup .symlink files
 setup_symlinks() {
-    echo "Setting up symlinks"
+    echo "- Setting up symlinks"
 
     for file in find -H "$DOTFILES" -maxdepth 3 -name '*.symlink' ; do
         target="$HOME/.$(basename "$file" '.symlink')"
@@ -32,21 +45,23 @@ setup_symlinks() {
 
 # Setup Homebrew and brewfile
 setup_homebrew() {
-    echo "Setting up Homebrew"
+    echo "- Setting up Homebrew"
 
     if test ! "$(command -v brew)"; then
         echo "Homebrew not installed. Installing."
         # Run as a login shell (non-interactive) so that the script doesn't pause for user input
         curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh | bash --login
+    else
+        echo "Homebrew is already installed!"
     fi
 
     # install brew dependencies from Brewfile
-    brew bundle
+    brew bundle --file="$DOTFILES/brew/Brewfile" || true
 }
 
 # Setup Shell
 setup_shell() {
-    echo "Configuring shell"
+    echo "- Configuring shell"
 
     [[ -n "$(command -v brew)" ]] && zsh_path="$(brew --prefix)/bin/zsh" || zsh_path="$(which zsh)"
     if ! grep "$zsh_path" /etc/shells; then
@@ -62,7 +77,7 @@ setup_shell() {
 
 # Setup VSCode
 setup_vscode() {
-
+    echo "- Copy vscode settings"
     ln -sv $HOME/.dotfiles/vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
     ln -sv $HOME/.dotfiles/vscode/keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json
     ln -sv $HOME/.dotfiles/vscode/snippets/ $HOME/Library/Application\ Support/Code/User/snippets
@@ -74,12 +89,14 @@ setup_vscode() {
 }
 
 # Go
+setup_xcode
 setup_symlinks
 setup_homebrew
 setup_shell
 setup_vscode
 
 # ZSH Plugins
+echo "- Installing ZSH plugins"
 ZSHPLUGS=(
   "zsh-completions"
   "zsh-history-substring-search"
@@ -92,4 +109,5 @@ for INDEX in ${!ZSHPLUGS[*]}; do
 done
 
 # MacOS Preferences
-source ./mac/.macos
+echo "- Applying custom MacOS defaults"
+sh $DOTFILES/macos/macos.sh

@@ -1,21 +1,19 @@
 export DOTFILES=$HOME/.dotfiles
-export ZSH=$DOTFILES/zsh
+export INCLUDES=$HOME/.local/share/dotfiles
 
-if [[ -d $DOTFILES/zsh/functions ]]; then
-    for func in $DOTFILES/zsh/functions/*(:t); autoload -U $func
-fi
+source $INCLUDES/zsh-completions/zsh-completions.plugin.zsh
+source $INCLUDES/zsh-history-substring-search/zsh-history-substring-search.zsh
+source $INCLUDES/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# initialize autocomplete
-autoload -U compinit add-zsh-hook
-compinit
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=100000
+SAVEHIST=100000
 
-# history
-HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
-setopt EXTENDED_HISTORY          # write the history file in the ":start:elapsed;command" format.
-setopt HIST_REDUCE_BLANKS        # remove superfluous blanks before recording entry.
-setopt HIST_IGNORE_ALL_DUPS      # delete old recorded entry if new entry is a duplicate.
+autoload -U compinit && compinit
+zmodload -i zsh/complist
+
+setopt hist_ignore_dups
+setopt hist_ignore_space
 
 # make terminal command navigation sane again
 bindkey "^[[1;5C" forward-word                      # [Ctrl-right] - forward one word
@@ -36,7 +34,6 @@ zstyle ':completion:*' insert-tab pending
 
 # default to file completion
 zstyle ':completion:*' completer _expand _complete _files _correct _approximate
-
 
 # aliases
 alias copyssh="pbcopy < $HOME/.ssh/id_ed25519.pub"
