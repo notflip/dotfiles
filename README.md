@@ -5,7 +5,7 @@ curl https://raw.githubusercontent.com/driesvints/dotfiles/HEAD/ssh.sh | sh -s "
 
 ### Install
 ```
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/notflip/dotfiles/main/install)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/notflip/dotfiles/main/install.sh)"
 ```
 
 ### Manual steps
