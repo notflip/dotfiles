@@ -11,6 +11,7 @@ sudo scutil --set HostName "MacBook Miguel"
 sudo scutil --set LocalHostName "MacBook Miguel"
 sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "MacBook Miguel"
 
+# Disable startup chime
 sudo nvram SystemAudioVolume=" "
 
 defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
@@ -18,19 +19,15 @@ defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
-defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
-defaults write com.apple.LaunchServices LSQuarantine -bool false
-sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
+
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
-defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
 
 defaults write NSGlobalDomain AppleLanguages -array "en" "nl"
 defaults write NSGlobalDomain AppleLocale -string "en_US@currency=EUR"
 defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
 defaults write NSGlobalDomain AppleMetricUnits -bool true
 sudo systemsetup -settimezone "Europe/Brussels" > /dev/null
-
 
 launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
 
