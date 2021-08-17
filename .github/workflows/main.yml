@@ -10,4 +10,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Execute full install
-      run:  sudo install.sh
+      run: |
+        chmod +x "${GITHUB_WORKSPACE}/install.sh"
+        "${GITHUB_WORKSPACE}/install.sh"
