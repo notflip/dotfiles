@@ -1,0 +1,64 @@
+export DOTFILES=$HOME/.dotfiles
+export ZSH=$DOTFILES/zsh
+
+if [[ -d $DOTFILES/zsh/functions ]]; then
+    for func in $DOTFILES/zsh/functions/*(:t); autoload -U $func
+fi
+
+# initialize autocomplete
+autoload -U compinit add-zsh-hook
+compinit
+
+# history
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt EXTENDED_HISTORY          # write the history file in the ":start:elapsed;command" format.
+setopt HIST_REDUCE_BLANKS        # remove superfluous blanks before recording entry.
+setopt HIST_IGNORE_ALL_DUPS      # delete old recorded entry if new entry is a duplicate.
+
+# make terminal command navigation sane again
+bindkey "^[[1;5C" forward-word                      # [Ctrl-right] - forward one word
+bindkey "^[[1;5D" backward-word                     # [Ctrl-left] - backward one word
+bindkey '^[^[[C' forward-word                       # [Ctrl-right] - forward one word
+bindkey '^[^[[D' backward-word                      # [Ctrl-left] - backward one word
+bindkey '^[[1;3D' beginning-of-line                 # [Alt-left] - beginning of line
+bindkey '^[[1;3C' end-of-line                       # [Alt-right] - end of line
+bindkey '^[[5D' beginning-of-line                   # [Alt-left] - beginning of line
+bindkey '^[[5C' end-of-line                         # [Alt-right] - end of line
+bindkey '^?' backward-delete-char                   # [Backspace] - delete backward
+
+# matches case insensitive for lowercase
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+# pasting with tabs doesn't perform completion
+zstyle ':completion:*' insert-tab pending
+
+# default to file completion
+zstyle ':completion:*' completer _expand _complete _files _correct _approximate
+
+
+# aliases
+alias copyssh="pbcopy < $HOME/.ssh/id_ed25519.pub"
+alias reloaddns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
+alias c="clear"
+
+# directories
+alias code="cd $HOME/Code"
+
+# git
+alias gst="git status"
+alias gb="git branch"
+alias gc="git checkout"
+alias gl="git log --oneline --decorate --color"
+alias amend="git add . && git commit --amend --no-edit"
+alias commit="git add . && git commit -m"
+alias diff="git diff"
+#alias force="git push --force"
+#alias nuke="git clean -df && git reset --hard"
+alias pop="git stash pop"
+alias pull="git pull"
+alias push="git push"
+alias resolve="git add . && git commit --no-edit"
+alias stash="git stash -u"
+alias unstage="git restore --staged .

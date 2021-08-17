@@ -1,0 +1,10 @@
+{
+    "typescript.suggest.paths": false,
+    "editor.fontFamily": "SF Mono, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontSize": 14,
+    "editor.lineHeight": 22,
+    "workbench.colorTheme": "GitHub Dark",
+    "extensions.ignoreRecommendations": true,
+    "security.workspace.trust.untrustedFiles": "open",
+    "git.enableSmartCommit": true
+}

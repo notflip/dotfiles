@@ -1,0 +1,42 @@
+# Taps
+tap 'homebrew/cask'
+tap 'homebrew/cask-fonts'
+tap 'homebrew/cask-versions'
+tap 'homebrew/bundle'
+
+brew 'curl'
+brew 'vim'
+brew 'mas'
+
+brew 'zsh'
+brew 'z'
+brew 'git'
+brew 'mysql'
+brew 'nginx'
+brew 'node'
+brew 'yarn'
+
+cask 'dash'
+cask 'alfred'
+cask 'iterm2'
+cask 'rectangle'
+cask 'docker'
+cask 'figma'
+cask 'firefox'
+cask 'insomnia'
+cask 'tableplus'
+cask 'slack'
+cask 'zoom'
+cask 'visual-studio-code'
+cask 'qlmarkdown'
+cask 'quicklook-json'
+cask 'syncthing'
+
+cask 'font-lato'
+cask 'font-open-sans'
+cask 'font-roboto'
+cask 'font-source-code-pro'
+cask 'font-source-sans-pro'
+cask 'font-source-serif-pro'
+
+mas 'Spark', id: 1176895641
