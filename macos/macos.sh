@@ -1,3 +1,5 @@
+echo "- Applying custom MacOS defaults"
+
 osascript -e 'tell application "System Preferences" to quit'
 
 sudo -v

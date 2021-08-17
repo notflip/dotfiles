@@ -6,10 +6,8 @@ tap 'homebrew/bundle'
 
 brew 'curl'
 brew 'vim'
-brew 'mas'
 
 brew 'zsh'
-brew 'z'
 brew 'git'
 brew 'mysql'
 brew 'nginx'
@@ -38,5 +36,3 @@ cask 'font-roboto'
 cask 'font-source-code-pro'
 cask 'font-source-sans-pro'
 cask 'font-source-serif-pro'
-
-mas 'Spark', id: 1176895641

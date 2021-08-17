@@ -1,0 +1,14 @@
+{
+    "extensions": [
+        "auiworks.amvim",
+        "christian-kohler.path-intellisense",
+        "CoenraadS.bracket-pair-colorizer",
+        "dbaeumer.vscode-eslint",
+        "GitHub.github-vscode-theme",
+        "golf1052.code-sync",
+        "k--kato.intellij-idea-keybindings",
+        "ms-vscode-remote.remote-ssh",
+        "ms-vscode-remote.remote-ssh-edit",
+        "vincaslt.highlight-matching-tag"
+    ]
+}

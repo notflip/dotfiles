@@ -15,6 +15,10 @@ cd "$DOTFILES" || exit
 mkdir -p $HOME/Code
 mkdir -p $HOME/Syncthing
 
+get_linkables() {
+    find -H "$DOTFILES" -maxdepth 3 -name '*.symlink'
+}
+
 # Setup XCode
 setup_xcode() {
     echo "Installing Command Line Developer Tools if not installed"
@@ -32,7 +36,7 @@ setup_xcode() {
 setup_symlinks() {
     echo "- Setting up symlinks"
 
-    for file in find -H "$DOTFILES" -maxdepth 3 -name '*.symlink' ; do
+    for file in $(get_linkables) ; do
         target="$HOME/.$(basename "$file" '.symlink')"
         if [ -e "$target" ]; then
             echo "~${target#$HOME} already exists... Skipping."
@@ -109,5 +113,4 @@ for INDEX in ${!ZSHPLUGS[*]}; do
 done
 
 # MacOS Preferences
-echo "- Applying custom MacOS defaults"
 sh $DOTFILES/macos/macos.sh
