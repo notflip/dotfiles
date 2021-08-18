@@ -13,7 +13,7 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/notflip/dotfiles/main/in
 ```
 
 3. Setup MacOS
-`sh ./install_macos.sh
+`sh ./install_macos.sh`
 
 4. Setup Symlinks
 `sh ./install_symlinks.sh`
