@@ -9,7 +9,7 @@ curl https://raw.githubusercontent.com/driesvints/dotfiles/HEAD/ssh.sh | sh -s "
 
 2. Install Main
 ```
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/notflip/dotfiles/main/install.sh)"
+git clone git@github.com:notflip/dotfiles.git ~/.dotfiles
 ```
 
 3. Setup MacOS

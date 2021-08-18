@@ -1,5 +1,6 @@
 [user]
 	name = Miguel Stevens
+	email = miguel@notflip.be
 [core]
 	editor = vim
 	excludesfile = ./.gitignore_global
