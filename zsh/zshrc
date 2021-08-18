@@ -23,9 +23,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 source $DOTFILES/zsh/aliases
 source $DOTFILES/zsh/opts
+source $DOTFILES/zsh/powerline10k
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-
-# load powerline10k config, previously configured
-[[ ! -f $DOTFILES/zsh/.p10k.zsh ]] || source $DOTFILES/zsh/.p10k.zsh
