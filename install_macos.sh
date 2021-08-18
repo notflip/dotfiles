@@ -6,11 +6,6 @@ sudo -v
 
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-sudo scutil --set ComputerName "MacBook Miguel"
-sudo scutil --set HostName "MacBook Miguel"
-sudo scutil --set LocalHostName "MacBook Miguel"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "MacBook Miguel"
-
 # Disable startup chime
 sudo nvram SystemAudioVolume=" "
 
@@ -80,22 +75,13 @@ defaults write com.apple.dock autohide-time-modifier -float 0
 defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock showhidden -bool true
 defaults write com.apple.dock show-recents -bool false
+defaults write com.apple.dock trash-full -boolean true
 
 find "${HOME}/Library/Application Support/Dock" -name "*-*.db" -maxdepth 1 -delete
 
-defaults write com.apple.dock wvous-tr-corner -int 10
+# Set top right corner to show desktop
+defaults write com.apple.dock wvous-tr-corner -int 4
 defaults write com.apple.dock wvous-tr-modifier -int 0
-
-defaults write com.apple.Safari UniversalSearchEnabled -bool false
-defaults write com.apple.Safari SuppressSearchSuggestions -bool true
-
-defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
-
-defaults write com.apple.Safari IncludeDevelopMenu -bool true
-defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
-
-defaults write com.apple.Safari WarnAboutFraudulentWebsites -bool true
 
 defaults write com.apple.terminal StringEncodings -array 4
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false

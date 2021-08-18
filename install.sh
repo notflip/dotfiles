@@ -15,6 +15,18 @@ get_linkables() {
     find -H "$DOTFILES" -maxdepth 3 -name '*.symlink'
 }
 
+# Setup OhMyZsh
+setup_ohmyzsh() {
+    if test ! $(which omz); then
+        /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/HEAD/tools/install.sh)"
+    fi
+
+    git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+    git clone https://github.com/agkozak/zsh-z $ZSH_CUSTOM/plugins/zsh-z
+    git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+}
+
 # Setup XCode
 setup_xcode() {
     echo "Installing Command Line Developer Tools if not installed"
@@ -63,15 +75,18 @@ setup_shell() {
 }
 
 # Go
+setup_ohmyzsh
 setup_xcode
 setup_homebrew
 setup_shell
 
 # ZSH Plugins
 echo "- Installing ZSH plugins"
+
+rm -rf $DOTLOCAL
+
 ZSHPLUGS=(
   "zsh-completions"
-  "zsh-history-substring-search"
   "zsh-syntax-highlighting"
 )
 

@@ -23,8 +23,9 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/notflip/dotfiles/main/in
 
 ### Manual steps
 
- - import rectangle config from ./rectangle.json
- - Set your email in git config
+ - Import rectangle config from ./rectangle.json
+ - Import iterm2 settings using 'Load preferences from a custom folder or URL' from `~/.dotfiles/iterm/com.googlecode.iterm2.plist`
+ - Set personal data in ~/.gitconfig.local
 
 
 ### Todo
