@@ -63,6 +63,8 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
     OpenWith -bool true \
     Privileges -bool true
 
+defaults write -g com.apple.mouse.scaling 13
+
 defaults write com.apple.dock minimize-to-application -bool true
 defaults write com.apple.dock persistent-apps -array
 defaults write com.apple.dock static-only -bool true
