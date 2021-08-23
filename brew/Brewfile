@@ -9,11 +9,11 @@ brew 'vim'
 
 brew 'bitwarden-cli'
 
+brew 'nvm'
 brew 'zsh'
 brew 'git'
 brew 'mysql'
 brew 'nginx'
-brew 'node'
 brew 'yarn'
 
 cask 'dash'
