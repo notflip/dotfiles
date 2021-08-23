@@ -7,6 +7,8 @@ tap 'homebrew/bundle'
 brew 'curl'
 brew 'vim'
 
+brew 'bitwarden-cli'
+
 brew 'zsh'
 brew 'git'
 brew 'mysql'
@@ -26,7 +28,6 @@ cask 'tableplus'
 cask 'slack'
 cask 'zoom'
 cask 'visual-studio-code'
-cask 'qlmarkdown'
 cask 'quicklook-json'
 cask 'syncthing'
 
