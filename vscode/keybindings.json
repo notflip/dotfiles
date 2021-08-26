@@ -1,1 +1,43 @@
-{}
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "shift+cmd+b",
+        "command": "-workbench.action.tasks.build"
+    },
+    {
+        "key": "shift+cmd+b",
+        "command": "bookmarks.listFromAllFiles"
+    },
+    {
+        "key": "alt+cmd+b",
+        "command": "-editor.action.goToImplementation",
+        "when": "editorHasImplementationProvider && editorTextFocus && !isInEmbeddedEditor"
+    },
+    {
+        "key": "alt+cmd+b",
+        "command": "git.checkout"
+    },
+    {
+        "key": "cmd+6",
+        "command": "-workbench.action.focusSixthEditorGroup"
+    },
+    {
+        "key": "cmd+1",
+        "command": "-workbench.action.focusFirstEditorGroup"
+    },
+    {
+        "key": "cmd+6",
+        "command": "workbench.view.extension.todo-tree-container"
+    },
+    {
+        "key": "alt+-",
+        "command": "decreaseSearchEditorContextLines",
+        "when": "inSearchEditor"
+      },
+      {
+        "key": "alt+=",
+        "command": "increaseSearchEditorContextLines",
+        "when": "inSearchEditor"
+      }
+      
+]
