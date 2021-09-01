@@ -6,15 +6,15 @@
     "workbench.colorTheme": "GitHub Dark",
     "extensions.ignoreRecommendations": true,
     "security.workspace.trust.untrustedFiles": "open",
+    
     "git.enableSmartCommit": true,
-
+    
     "gitlens.toggleFileBlame": true,
     "gitlens.views.search.enabled": false,
     "gitlens.views.compare.enabled": false,
     "gitlens.statusBar.enabled": false,
     "gitlens.hovers.enabled": false,
     "gitlens.blame.format": "${author|10} ${date}",
-    "gitlens.blame.highlight.locations": ["gutter", "line", "overview"],
     "gitlens.blame.avatars": false,
     "gitlens.blame.compact": false,
     "gitlens.defaultDateFormat": "DD/MM/YYYY",
@@ -24,9 +24,14 @@
     "gitlens.views.branches.branches.layout": "list",
     "diffEditor.ignoreTrimWhitespace": false,
 
+    "files.watcherExclude": {
+        "**/node_modules/**": true
+    },
+    
     "search.searchEditor.defaultNumberOfContextLines": 8,
     "search.exclude": {
         "**/node_modules": true,
         "**/dist": true
-    }
+    },
+    "explorer.confirmDelete": false,
 }
