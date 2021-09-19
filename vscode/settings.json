@@ -1,4 +1,5 @@
 {
+    "vetur.format.enable": false,
     "typescript.suggest.paths": false,
     "editor.fontFamily": "SF Mono, Menlo, Monaco, 'Courier New', monospace",
     "editor.fontSize": 14,
@@ -6,9 +7,7 @@
     "workbench.colorTheme": "GitHub Dark",
     "extensions.ignoreRecommendations": true,
     "security.workspace.trust.untrustedFiles": "open",
-    
     "git.enableSmartCommit": true,
-    
     "gitlens.toggleFileBlame": true,
     "gitlens.views.search.enabled": false,
     "gitlens.views.compare.enabled": false,
@@ -23,15 +22,20 @@
     "gitlens.codeLens.enabled": false,
     "gitlens.views.branches.branches.layout": "list",
     "diffEditor.ignoreTrimWhitespace": false,
-
     "files.watcherExclude": {
-        "**/node_modules/**": true
+        "**/node_modules/**": true,
+        "**/dist/**": true
     },
-    
     "search.searchEditor.defaultNumberOfContextLines": 8,
     "search.exclude": {
         "**/node_modules": true,
         "**/dist": true
     },
     "explorer.confirmDelete": false,
+    "[typescript]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "[vue]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
 }
